@@ -13,9 +13,11 @@ type Dept = 'Sales' | 'HR' | 'IT'
  * and then sorts those employees by their experience in ascending order.
  */
 function filterAndSortByExperience(department: Dept, employees: Employee[]) {
-    // Implement your code here
+    return employees.filter( (employee) => {
+        return employee.department == department
+    })
 }
 
 console.log('Exercise 1 - Sort and Filter\n');
 // Uncomment the line below to test your function
-// console.log(filterAndSortByExperience('Sales', employees));
+console.log(filterAndSortByExperience('Sales', employees));

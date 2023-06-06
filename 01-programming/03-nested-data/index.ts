@@ -9,9 +9,15 @@ import type { User } from './data-set';
  * Example output: [{ id: 1, name: 'John Doe', totalOrderValue: 300 }, { id: 2, name: 'Jane Doe', totalOrderValue: 700 }, ...]
  */
 function addUserTotalOrderValue(users: User[]) {
-    // Implement your code here
+    return users.map((user) => {
+        return {
+            id: user.id,
+            name: user.name,
+            totalOrderValue: user.orders.reduce((previous, order) => { return previous + order.value }, 0)
+        }
+    })
 }
 
 console.log('Exercise 4 - Nested Data Manipulation\n');
 // Uncomment the line below to test your function
-// console.log(addUserTotalOrderValue(users));
+console.log(addUserTotalOrderValue(users));
