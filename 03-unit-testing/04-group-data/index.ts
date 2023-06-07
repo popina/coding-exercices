@@ -8,7 +8,7 @@ export function groupTransactions(transactions: Transaction[]) {
     if (transaction.type === "credit") {
       return acc;
     }
-    const month = transaction.date.toLocaleString("default", {
+    const month = transaction.date.toLocaleString("en-US", {
       month: "long",
     });
     const existingMonth = acc.find((t) => t.month === month);

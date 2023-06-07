@@ -7,10 +7,18 @@ import type { Product } from './data-set';
  * 
  * Example output: ["Product 1: 'Awesome Product' is available for only $49.99", "Product 2: 'Great Product' is available for only $29.99", ...]
  */
+
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+
 function formatProductDescriptions(products: Product[]) {
-    // Implement your code here
+    return products.map((product, index) => {
+        return `Product ${index}: ${product.name} is available for only ${formatter.format(product.price)}`
+    })
 }
 
 console.log('Exercise 2 - Transform Data\n');
 // Uncomment the line below to test your function
-// console.log(formatProductDescriptions(products));
+console.log(formatProductDescriptions(products));
