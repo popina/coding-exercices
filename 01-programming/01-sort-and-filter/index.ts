@@ -15,7 +15,7 @@ type Dept = 'Sales' | 'HR' | 'IT'
 function filterAndSortByExperience(department: Dept, employees: Employee[]) {
     return employees.filter( (employee) => {
         return employee.department == department
-    })
+    }).sort((a, b) => { return a.experience - b.experience })
 }
 
 console.log('Exercise 1 - Sort and Filter\n');
